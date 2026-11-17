@@ -4,6 +4,7 @@ import { categories } from "../../data/categories";
 import { getCollection } from "astro:content";
 
 const articles = await getCollection("articles", ({ data }) => !data.draft);
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Topics" description="Explore the five editorial pillars of TechnoRaise: software development, artificial intelligence, digital solutions, digital transformation, and technology news.">
   <section class="listing-hero section-wrap">
@@ -14,7 +15,7 @@ const articles = await getCollection("articles", ({ data }) => !data.draft);
   <section class="category-list section-wrap">
     {categories.map((category, index) => {
       const count = articles.filter((article) => article.data.category === category.slug).length;
-      return <a class="category-row" href={`/categories/${category.slug}/`}>
+      return <a class="category-row" href={`${base}categories/${category.slug}/`}>
         <span class="category-row-number">{category.number}</span>
         <span class="category-row-icon" aria-hidden="true">{["⌘", "✳", "◇", "↗", "◉"][index]}</span>
         <span class="category-row-copy"><strong>{category.name}</strong><small>{category.description}</small></span>
