@@ -1,0 +1,9 @@
+@tailwind utilities;
+
+/* Apply the requested default text tone and sans stack without Tailwind's
+   preflight reset, preserving the site's existing editorial component styles. */
+@layer base {
+  body {
+    @apply font-sans text-slate-900;
+  }
+}
