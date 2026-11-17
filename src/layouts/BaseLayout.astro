@@ -10,11 +10,16 @@ interface Props {
   description: string;
   image?: string;
   type?: "website" | "article";
+  slug?: string;
   noindex?: boolean;
 }
-const { title, description, image, type, noindex = false } = Astro.props;
+const { title, description, image, type, slug, noindex = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const siteUrl = new URL(base, Astro.site).toString();
+const ogImage =
+  type === "article" && slug
+    ? new URL(`${base}og/${encodeURIComponent(slug)}.png`, Astro.site).toString()
+    : image;
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -39,7 +44,7 @@ const organizationSchema = {
       })(window,document,"script","dataLayer","GTM-W227L4KM");
     </script>
     <!-- End Google Tag Manager -->
-    <SeoHead title={title} description={description} image={image} type={type} noindex={noindex} />
+    <SeoHead title={title} description={description} image={ogImage} type={type} noindex={noindex} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <slot name="head" />
