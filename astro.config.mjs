@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   // GitHub Pages project site: https://gpldroid.github.io/technoraise/
@@ -8,5 +7,5 @@ export default defineConfig({
   base: "/technoraise",
   trailingSlash: "always",
   output: "static",
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx()],
 });
