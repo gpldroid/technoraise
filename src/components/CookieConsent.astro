@@ -1,0 +1,40 @@
+<aside class="cookie-banner" id="cookie-consent" aria-label="Cookie preferences" hidden>
+  <div class="cookie-copy">
+    <span class="cookie-kicker">YOUR PRIVACY, YOUR CHOICE</span>
+    <p>We use essential storage to keep this site working. Optional analytics cookies help us understand what readers find useful. You can accept or reject optional cookies.</p>
+    <a href={`${import.meta.env.BASE_URL}privacy-policy/`}>Read our privacy policy</a>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-button cookie-reject" data-consent="rejected">Reject</button>
+    <button type="button" class="cookie-button cookie-accept" data-consent="accepted">Accept</button>
+  </div>
+</aside>
+<script>
+  const banner = document.querySelector<HTMLAsideElement>("#cookie-consent");
+  const storageKey = "technoraise-cookie-consent";
+  let analyticsLoaded = false;
+  const loadAnalytics = () => {
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-W227L4KM";
+    document.head.appendChild(script);
+  };
+  const showBanner = () => { if (banner) banner.hidden = false; };
+  const saved = localStorage.getItem(storageKey);
+  if (saved === "accepted") loadAnalytics();
+  if (!saved && banner) showBanner();
+  banner?.querySelectorAll<HTMLButtonElement>("[data-consent]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const choice = button.dataset.consent;
+      if (choice !== "accepted" && choice !== "rejected") return;
+      localStorage.setItem(storageKey, choice);
+      banner.hidden = true;
+      if (choice === "accepted") loadAnalytics();
+    });
+  });
+  window.addEventListener("technoraise:cookie-preferences", showBanner);
+</script>
