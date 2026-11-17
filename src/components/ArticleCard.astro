@@ -14,6 +14,9 @@ const formattedPubDate = publicationDate.toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric",
 });
+const imageSrc = /^https?:\/\//.test(heroImage)
+  ? heroImage
+  : `${import.meta.env.BASE_URL}${heroImage.replace(/^\/+/, "")}`;
 ---
 
 <a
@@ -23,7 +26,7 @@ const formattedPubDate = publicationDate.toLocaleDateString("en-US", {
   <article>
     <div class="aspect-[16/10] w-full overflow-hidden">
       <img
-        src={heroImage}
+        src={imageSrc}
         alt={title}
         loading="lazy"
         decoding="async"
