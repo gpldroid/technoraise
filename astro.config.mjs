@@ -2,9 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  // GitHub Pages project site: https://gpldroid.github.io/technoraise/
-  site: "https://gpldroid.github.io",
-  base: "/technoraise",
+  site: "https://technoraise-nwmv.netlify.app",
   trailingSlash: "always",
   output: "static",
   integrations: [mdx()],
