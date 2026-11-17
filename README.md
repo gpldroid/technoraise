@@ -8,7 +8,7 @@ The project is built with [Astro](https://astro.build/) and is designed to ship 
 
 ## Technology
 
-- **Astro 6** — static-first site generation and file-based routing.
+- **Astro 7** — static-first site generation and file-based routing.
 - **Content Collections** — validated Markdown and MDX article content.
 - **MDX** — rich editorial content when Markdown alone is not enough.
 - **Astro Sitemap** — XML sitemap generation.
@@ -17,7 +17,7 @@ The project is built with [Astro](https://astro.build/) and is designed to ship 
 
 ## Requirements
 
-- Node.js **22.23.4 or newer** (use an even-numbered Node.js release supported by Astro).
+- Node.js **22.23.4 or newer**.
 - npm.
 
 ## Getting started
