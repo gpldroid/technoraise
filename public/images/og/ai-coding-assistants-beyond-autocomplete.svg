@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">AI Coding Assistants: Beyond Autocomplete</title><desc id="desc">A developer and luminous AI workflow assistant collaborate across code, tests, and documentation.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#06152B"/><stop offset=".6" stop-color="#092B4C"/><stop offset="1" stop-color="#030F20"/></linearGradient>
+<linearGradient id="cyan" x2="1"><stop stop-color="#26D7CF"/><stop offset="1" stop-color="#168EFF"/></linearGradient>
+<radialGradient id="halo"><stop stop-color="#12A8E8" stop-opacity=".55"/><stop offset="1" stop-color="#12A8E8" stop-opacity="0"/></radialGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><circle cx="910" cy="305" r="300" fill="url(#halo)"/>
+<path d="M0 515Q330 400 620 540T1200 500V630H0Z" fill="#04182D"/>
+<text x="74" y="90" fill="#58E7DB" font-family="Arial" font-size="17" font-weight="700" letter-spacing="4">ARTIFICIAL INTELLIGENCE • ENGINEERING</text>
+<text x="74" y="210" fill="#F4FAFF" font-family="Arial" font-size="62" font-weight="700">AI Coding</text>
+<text x="74" y="282" fill="#F4FAFF" font-family="Arial" font-size="62" font-weight="700">Assistants:</text>
+<text x="74" y="354" fill="#58E7DB" font-family="Arial" font-size="62" font-weight="700">Beyond Autocomplete</text>
+<path d="M75 388h490" stroke="url(#cyan)" stroke-width="6" stroke-linecap="round"/>
+<text x="75" y="440" fill="#B9D8EC" font-family="Arial" font-size="25">Plan smarter. Code with intent. Keep humans in control.</text>
+<g filter="url(#glow)">
+<rect x="670" y="130" width="430" height="350" rx="28" fill="#08284A" stroke="#31C9F0" stroke-width="3"/>
+<rect x="700" y="165" width="220" height="245" rx="16" fill="#061A31" stroke="#267EB6" stroke-width="2"/>
+<g stroke-linecap="round" stroke-width="7"><path d="M730 205h130M730 238h165M730 271h105M730 304h150M730 337h90" stroke="#39BDEB"/><path d="M730 370h115" stroke="#36D8C7"/></g>
+<circle cx="1000" cy="240" r="67" fill="#0C6397" stroke="#7AF3FF" stroke-width="4"/>
+<path d="M965 234q-18-35 15-48 26-30 52-4 38 8 27 47l-8 39q-17 30-56 18-32-5-30-52Z" fill="#0A2B4A" stroke="#B5F8FF" stroke-width="4"/>
+<circle cx="985" cy="237" r="7" fill="#65F1F0"/><circle cx="1018" cy="237" r="7" fill="#65F1F0"/>
+<path d="M950 330h100M1000 307v45" stroke="#4BE4D4" stroke-width="5" stroke-linecap="round"/>
+<g fill="#0D527C" stroke="#54DCEB" stroke-width="2"><rect x="715" y="430" width="105" height="34" rx="10"/><rect x="835" y="430" width="105" height="34" rx="10"/><rect x="955" y="430" width="105" height="34" rx="10"/></g>
+<g fill="#E4FCFF" font-family="Arial" font-size="13" font-weight="700" text-anchor="middle"><text x="767" y="452">PLAN</text><text x="887" y="452">TEST</text><text x="1007" y="452">REVIEW</text></g>
+<path d="M820 395q50-45 100-8t80-12" fill="none" stroke="#41DCCE" stroke-width="4" stroke-dasharray="8 10"/>
+</g>
+<path d="M75 555h1050" stroke="#4D8BB0" stroke-opacity=".35"/>
+<rect x="75" y="578" width="28" height="28" rx="8" fill="#20CFC3"/><text x="89" y="598" fill="#05223C" font-family="Arial" font-size="18" font-weight="700" text-anchor="middle">T</text>
+<text x="116" y="599" fill="#F4FAFF" font-family="Arial" font-size="25" font-weight="700">TechnoRaise</text><text x="1125" y="598" fill="#9FC7DF" font-family="Arial" font-size="14" text-anchor="end" letter-spacing="2">TECHNOLOGY • IDEAS • INNOVATION</text>
+</svg>
