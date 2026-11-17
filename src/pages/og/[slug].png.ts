@@ -182,8 +182,12 @@ export async function GET({ props }: { props: { article: Awaited<ReturnType<type
     fitTo: { mode: "original" },
     background: BLUE,
   }).render().asPng();
+  const pngBuffer = png.buffer.slice(
+    png.byteOffset,
+    png.byteOffset + png.byteLength,
+  ) as ArrayBuffer;
 
-  return new Response(png, {
+  return new Response(pngBuffer, {
     headers: {
       "Content-Type": "image/png",
       "Cache-Control": "public, max-age=31536000, immutable",
