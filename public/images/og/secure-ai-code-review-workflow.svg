@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Secure AI Code Review</title><desc id="desc">Ship safer code with AI. TechnoRaise editorial technology artwork.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06152B"/><stop offset=".55" stop-color="#092B4C"/><stop offset="1" stop-color="#03101F"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#25D6CE"/><stop offset="1" stop-color="#168EFF"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#0E8DCD" stop-opacity=".5"/><stop offset="1" stop-color="#0E8DCD" stop-opacity="0"/></radialGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.02 0 0 0 0 0.4 0 0 0 0 0.7 0 0 0 .5 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#4AB6E8" stroke-opacity=".08" stroke-width="1"/></pattern>
+ <style>.headline{font:700 62px Inter,Arial,sans-serif;fill:#F3FAFF;letter-spacing:-2px}.kicker{font:700 16px Inter,Arial,sans-serif;fill:#5BE5DB;letter-spacing:3px}.sub{font:500 24px Inter,Arial,sans-serif;fill:#B8D9ED}.brand{font:700 25px Inter,Arial,sans-serif;fill:#F3FAFF}.small{font:600 14px Inter,Arial,sans-serif;fill:#9FC7DF;letter-spacing:2px}</style>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+<path d="M0 500C240 420 330 670 650 570S1000 460 1200 540V630H0Z" fill="#061E37" opacity=".8"/>
+<circle cx="1040" cy="100" r="260" fill="#0878B8" opacity=".08"/><path d="M0 0h1200v8H0Z" fill="url(#accent)"/>
+<text x="82" y="95" class="kicker">ARTIFICIAL INTELLIGENCE</text>
+<text x="82" y="240" class="headline">Secure AI Code Review</text>
+<rect x="82" y="336" width="420" height="5" rx="3" fill="url(#accent)"/>
+<text x="82" y="386" class="sub">Ship safer code with AI</text>
+<g><circle cx="905" cy="315" r="205" fill="url(#glow)"/><rect x="670" y="104" width="440" height="420" rx="34" fill="#0A2342" stroke="#247BC4" stroke-opacity=".65" stroke-width="2"/><g filter="url(#shadow)"><rect x="735" y="160" width="300" height="290" rx="22" fill="#092F57" stroke="#42BDEB" stroke-width="3"/><path d="M885 185 1000 230v82c0 72-51 116-115 145-64-29-115-73-115-145v-82Z" fill="#0B6AA0" stroke="#83F5FF" stroke-width="5"/><path d="m840 318 31 31 65-75" fill="none" stroke="#C2FFF5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="m770 210-20 20m270-20 20 20M770 400l-20 20m270-20 20 20" stroke="#37D9E8" stroke-width="5"/></g></g>
+<path d="M82 555h1036" stroke="#5AA6CE" stroke-opacity=".28"/>
+<rect x="82" y="578" width="28" height="28" rx="8" fill="#20CFC3"/><text x="96" y="598" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#05223C">T</text><text x="122" y="599" class="brand">TechnoRaise</text>
+<text x="1118" y="598" text-anchor="end" class="small">TECHNOLOGY • IDEAS • INNOVATION</text>
+</svg>
