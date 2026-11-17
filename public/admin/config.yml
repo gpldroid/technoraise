@@ -1,0 +1,105 @@
+backend:
+  name: github
+  repo: gpldroid/technoraise
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: articles
+    label: Articles
+    label_singular: Article
+    folder: src/content/articles
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - name: title
+        label: Title
+        widget: string
+
+      - name: description
+        label: Description
+        widget: text
+
+      - name: pubDate
+        label: Publication Date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - name: updatedDate
+        label: Updated Date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+
+      - name: author
+        label: Author
+        widget: string
+
+      - name: authorType
+        label: Author Type
+        widget: select
+        options:
+          - label: Person
+            value: Person
+          - label: Organization
+            value: Organization
+        default: Organization
+        required: false
+
+      - name: category
+        label: Category
+        widget: select
+        options:
+          - label: Software Development
+            value: software-development
+          - label: Artificial Intelligence
+            value: artificial-intelligence
+          - label: Digital Solutions
+            value: digital-solutions
+          - label: Digital Transformation
+            value: digital-transformation
+          - label: Technology News
+            value: technology-news
+
+      - name: tags
+        label: Tags
+        widget: list
+        field:
+          label: Tag
+          name: tag
+          widget: string
+        required: false
+
+      - name: draft
+        label: Draft
+        widget: boolean
+        default: true
+        required: false
+
+      - name: heroImage
+        label: Hero Image
+        widget: image
+        required: false
+
+      - name: heroImageWidth
+        label: Hero Image Width
+        widget: number
+        value_type: int
+        min: 1
+        default: 1600
+        required: false
+
+      - name: heroImageHeight
+        label: Hero Image Height
+        widget: number
+        value_type: int
+        min: 1
+        default: 900
+        required: false
