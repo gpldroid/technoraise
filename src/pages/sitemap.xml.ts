@@ -27,6 +27,9 @@ export async function GET() {
     "/categories/digital-solutions/",
     "/categories/digital-transformation/",
     "/categories/technology-news/",
+    "/editorial-policy/",
+    "/privacy-policy/",
+    "/terms-of-use/",
   ];
 
   const articlePaths = articles.map((article) => {
