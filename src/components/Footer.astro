@@ -1,5 +1,6 @@
 ---
 import { categories } from "../data/categories";
+import SocialLinks from "./SocialLinks.astro";
 const base = import.meta.env.BASE_URL;
 const topicHref = (slug: string) => `${base}${slug === "software-development" ? "software-dev/" : slug === "artificial-intelligence" ? "ai/" : `categories/${slug}/`}`;
 ---
@@ -12,6 +13,7 @@ const topicHref = (slug: string) => `${base}${slug === "software-development" ? 
       </a>
       <p>Clear thinking for a world shaped by technology.</p>
       <span class="footer-manifesto">Elevate Ideas. Empower the Future.</span>
+      <SocialLinks />
     </div>
     <div class="footer-column">
       <h2>Explore</h2>
