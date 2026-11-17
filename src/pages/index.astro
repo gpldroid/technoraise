@@ -62,7 +62,7 @@ const base = import.meta.env.BASE_URL;
       {latest.length > 0 ? (
         <div class="latest-rail-wrap">
           <div class="latest-rail" aria-label="Latest articles">
-            {latest.map((article) => <div class="latest-rail-item"><ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? `${base}og/${encodeURIComponent(article.id)}.png`} /></div>)}
+            {latest.map((article) => <div class="latest-rail-item"><ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? `og/${encodeURIComponent(article.id)}.png`} /></div>)}
           </div>
           <p class="rail-hint"><span aria-hidden="true">←</span> Scroll horizontally to explore more stories <span aria-hidden="true">→</span></p>
         </div>

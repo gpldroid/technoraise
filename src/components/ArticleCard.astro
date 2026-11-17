@@ -14,38 +14,40 @@ const formattedPubDate = publicationDate.toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric",
 });
-const imageSrc = /^https?:\/\//.test(heroImage)
+
+// Accept absolute URLs and root-relative or content-relative paths without
+// accidentally adding the configured BASE_URL twice.
+const base = import.meta.env.BASE_URL;
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const isAbsoluteImage = heroImage.startsWith("https://") || heroImage.startsWith("http://");
+const imagePath = heroImage.startsWith("/") ? heroImage.slice(1) : heroImage;
+const baseWithoutLeadingSlash = normalizedBase.startsWith("/") ? normalizedBase.slice(1) : normalizedBase;
+const imageSrc = isAbsoluteImage
   ? heroImage
-  : `${import.meta.env.BASE_URL}${heroImage.replace(/^\/+/, "")}`;
+  : imagePath.startsWith(baseWithoutLeadingSlash)
+    ? `/${imagePath}`
+    : `${normalizedBase}${imagePath}`;
 ---
 
-<a
-  href={url}
-  class="group block overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-lg"
->
+<a href={url} class="article-card">
   <article>
-    <div class="aspect-[16/10] w-full overflow-hidden">
+    <div class="article-card-image">
       <img
         src={imageSrc}
         alt={title}
         loading="lazy"
         decoding="async"
-        class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+        width="1200"
+        height="750"
       />
     </div>
-
-    <div class="p-5 md:p-6">
-      <p class="mb-2 text-fs-xs font-medium text-techno-teal">
+    <div class="article-card-content">
+      <p class="article-card-meta">
         <time datetime={publicationDate.toISOString()}>{formattedPubDate}</time>
       </p>
-
-      <h3 class="mb-2 line-clamp-2 text-fs-xl font-semibold leading-tight text-slate-900 transition-colors group-hover:text-techno-blue">
-        {title}
-      </h3>
-
-      <p class="line-clamp-3 text-fs-sm leading-normal text-slate-600">
-        {description}
-      </p>
+      <h3>{title}</h3>
+      <p class="article-card-description">{description}</p>
+      <span class="article-card-read-link">Read article <span aria-hidden="true">↗</span></span>
     </div>
   </article>
 </a>
