@@ -1,26 +1,29 @@
 ---
 import { categories } from "../data/categories";
 
-const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname.startsWith(base)
+  ? `/${Astro.url.pathname.slice(base.length)}`
+  : Astro.url.pathname;
 ---
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/" aria-label="TechnoRaise home">
+    <a class="brand" href={base} aria-label="TechnoRaise home">
       <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="brand-word">Techno<span>Raise</span></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class:list={["nav-link", { active: currentPath === "/" }]} href="/">Home</a>
-      <a class:list={["nav-link", { active: currentPath.startsWith("/articles/") }]} href="/articles/">Articles</a>
+      <a class:list={["nav-link", { active: currentPath === "/" }]} href={base}>Home</a>
+      <a class:list={["nav-link", { active: currentPath.startsWith("/articles/") }]} href={`${base}articles/`}>Articles</a>
       <div class="nav-dropdown">
-        <a class:list={["nav-link", { active: currentPath.startsWith("/categories/") }]} href="/categories/">Topics <span aria-hidden="true">⌄</span></a>
+        <a class:list={["nav-link", { active: currentPath.startsWith("/categories/") }]} href={`${base}categories/`}>Topics <span aria-hidden="true">⌄</span></a>
         <div class="dropdown-panel">
-          {categories.map((category) => <a href={`/categories/${category.slug}/`}>{category.name}</a>)}
+          {categories.map((category) => <a href={`${base}categories/${category.slug}/`}>{category.name}</a>)}
         </div>
       </div>
-      <a class:list={["nav-link", { active: currentPath === "/about/" }]} href="/about/">About</a>
+      <a class:list={["nav-link", { active: currentPath === "/about/" }]} href={`${base}about/`}>About</a>
     </nav>
-    <a class="header-cta" href="/contact/">Get in touch <span aria-hidden="true">↗</span></a>
+    <a class="header-cta" href={`${base}contact/`}>Get in touch <span aria-hidden="true">↗</span></a>
   </div>
 </header>
