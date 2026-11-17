@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 const articles = defineCollection({
@@ -12,6 +13,7 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().min(2),
+    authorType: z.enum(["Person", "Organization"]).default("Organization"),
     category: z.enum([
       "software-development",
       "artificial-intelligence",
