@@ -60,3 +60,11 @@
 }
 @media(max-width:420px){.cookie-copy p{font-size:11px}.cookie-banner{padding:15px}.cookie-button{min-width:76px}}
 @media(prefers-reduced-motion:reduce){.scroll-controls{transition:none}.latest-rail{scroll-behavior:auto}}
+
+
+/* Social links shared by every page through the canonical footer. */
+.footer-brand-block .social-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.social-link{display:grid;width:36px;height:36px;place-items:center;border:1px solid #ffffff2b;border-radius:50%;color:#c1cad4;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.social-link svg{width:16px;height:16px;fill:currentColor}
+.social-link:hover{transform:translateY(-2px);border-color:var(--lime);background:#c9f36a14;color:var(--lime)}
+.social-link:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
