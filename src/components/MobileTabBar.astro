@@ -1,0 +1,19 @@
+---
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname.startsWith(base) ? `/${Astro.url.pathname.slice(base.length)}` : Astro.url.pathname;
+const items = [
+  { label: "Home", href: base, path: "/", icon: "⌂" },
+  { label: "Articles", href: `${base}articles/`, path: "/articles/", icon: "▤" },
+  { label: "Topics", href: `${base}categories/`, path: "/categories/", icon: "◈" },
+  { label: "About", href: `${base}about/`, path: "/about/", icon: "i" },
+  { label: "Contact", href: `${base}contact/`, path: "/contact/", icon: "↗" },
+];
+---
+<nav class="mobile-tabbar" aria-label="Mobile navigation">
+  {items.map((item) => {
+    const active = item.path === "/" ? currentPath === "/" : currentPath === item.path || currentPath.startsWith(item.path) || (item.path === "/categories/" && ["/ai/", "/software-dev/"].includes(currentPath));
+    return <a href={item.href} class:list={{ "mobile-tab": true, "is-active": active }} aria-current={active ? "page" : undefined}>
+      <span class="mobile-tab-icon" aria-hidden="true">{item.icon}</span><span>{item.label}</span>
+    </a>;
+  })}
+</nav>
