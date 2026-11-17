@@ -50,7 +50,7 @@ src/
 ├── pages/            # File-based routes
 └── styles/           # Global design system
 public/               # Static files (favicon, robots, social image)
-astro.config.mjs      # Astro, MDX, sitemap and canonical site URL
+astro.config.mjs      # Astro, MDX, sitemap and GitHub Pages base path
 ```
 
 ## Writing an article
@@ -85,7 +85,7 @@ Available category slugs are:
 
 ## SEO and publishing notes
 
-- The canonical site URL is configured as **https://technoraise.com** in `astro.config.mjs`.
+- The public site URL is **https://gpldroid.github.io/technoraise/**. Astro sets `site: "https://gpldroid.github.io"` and `base: "/technoraise"` for this GitHub Pages project site. No custom domain is configured or required.
 - Page titles, descriptions, canonical URLs, Open Graph metadata and social-card metadata are rendered in the shared layout.
 - The site generates an XML sitemap during production builds and provides a `robots.txt` file.
 - Article pages emit Article and BreadcrumbList JSON-LD; the site layout emits Organization JSON-LD.
@@ -94,16 +94,27 @@ Available category slugs are:
 
 ## Deployment
 
-This project builds to a static `dist/` directory. It can be deployed from GitHub to any static host that supports Astro's build output, including Cloudflare Pages, Vercel, or GitHub Pages.
+This project is configured specifically for **GitHub Pages**. Every push to `main` runs `.github/workflows/deploy.yml`, checks the project, builds the static site, and deploys the `dist/` output.
 
+Public URL: **https://gpldroid.github.io/technoraise/**  
 Build command: `npm run build`  
 Output directory: `dist`
 
-No hosting provider, CMS, analytics service, or external form backend is configured by default. Choose and configure those separately when the requirements are known.
+No custom domain, CNAME record, Cloudflare Pages, Vercel, CMS, analytics service, or external form backend is configured.
+
+## GitHub Pages setup
+
+1. Push changes to the `main` branch.
+2. In the repository, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **GitHub Actions** as the source.
+4. Open the **Actions** tab and wait for **Deploy to GitHub Pages** to complete.
+5. Visit [https://gpldroid.github.io/technoraise/](https://gpldroid.github.io/technoraise/).
+
+The workflow deploys on every push to `main` and can also be started manually with **Run workflow**.
 
 ## Before public launch
 
-- Verify domain ownership and DNS, HTTPS, and the preferred canonical hostname.
+- In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**. The workflow publishes the site at `https://gpldroid.github.io/technoraise/`.
 - Add verified organization and author information where appropriate.
 - Replace or complete the contact details and legal copy to reflect the actual publisher, jurisdiction, audience, data processing, and any third-party services used.
 - Review every article for originality, accuracy, attribution, and publication readiness.
