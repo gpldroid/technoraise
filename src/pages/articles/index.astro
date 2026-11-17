@@ -14,6 +14,6 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
     <p>Reporting, practical guides, and considered perspectives on the technologies shaping how we work and live.</p>
   </section>
   <section class="listing-content section-wrap">
-    {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard title={article.data.title} description={article.data.description} href={`/articles/${article.id}/`} category={categories.find((item) => item.slug === article.data.category)?.name ?? article.data.category} date={article.data.pubDate} />)}</div> : <div class="editorial-empty"><span class="empty-mark">✳</span><div><h2>Our first stories are in the works.</h2><p>We're building a thoughtful library of technology writing. Visit the topics page to see what we'll be covering.</p></div><a href="/categories/">Explore topics <span aria-hidden="true">↗</span></a></div>}
+    {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? "social-card.svg"} />)}</div> : <div class="editorial-empty"><span class="empty-mark">✳</span><div><h2>Our first stories are in the works.</h2><p>We're building a thoughtful library of technology writing. Visit the topics page to see what we'll be covering.</p></div><a href="/categories/">Explore topics <span aria-hidden="true">↗</span></a></div>}
   </section>
 </BaseLayout>
