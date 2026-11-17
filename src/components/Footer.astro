@@ -1,0 +1,35 @@
+---
+import { categories } from "../data/categories";
+---
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand-block">
+      <a class="brand brand-footer" href="/">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-word">Techno<span>Raise</span></span>
+      </a>
+      <p>Clear thinking for a world shaped by technology.</p>
+      <span class="footer-manifesto">Elevate Ideas. Empower the Future.</span>
+    </div>
+    <div class="footer-column">
+      <h2>Explore</h2>
+      <a href="/articles/">All articles</a>
+      <a href="/about/">About TechnoRaise</a>
+      <a href="/editorial-policy/">Editorial policy</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <div class="footer-column">
+      <h2>Topics</h2>
+      {categories.map((category) => <a href={`/categories/${category.slug}/`}>{category.name}</a>)}
+    </div>
+    <div class="footer-column">
+      <h2>Information</h2>
+      <a href="/privacy-policy/">Privacy policy</a>
+      <a href="/terms-of-use/">Terms of use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} TechnoRaise. All rights reserved.</span>
+    <span>Independent thinking. Practical technology.</span>
+  </div>
+</footer>
