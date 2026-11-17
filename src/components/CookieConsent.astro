@@ -10,7 +10,7 @@
   </div>
 </aside>
 <script>
-  const banner = document.querySelector<HTMLAsideElement>("#cookie-consent");
+  const banner = document.querySelector<HTMLElement>("#cookie-consent");
   const storageKey = "technoraise-cookie-consent";
   let analyticsLoaded = false;
   const loadAnalytics = () => {
@@ -29,7 +29,7 @@
   try { saved = localStorage.getItem(storageKey); } catch { /* Storage may be unavailable; keep optional analytics disabled. */ }
   if (saved === "accepted") loadAnalytics();
   if (!saved && banner) showBanner();
-  banner?.querySelectorAll<HTMLButtonElement>("[data-consent]").forEach((button) => {
+  banner?.querySelectorAll<HTMLButtonElement>("[data-consent]").forEach((button: HTMLButtonElement) => {
     button.addEventListener("click", () => {
       const choice = button.dataset.consent;
       if (choice !== "accepted" && choice !== "rejected") return;
