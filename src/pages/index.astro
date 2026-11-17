@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 
 const articles = (await getCollection("articles", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const latest = articles.slice(0, 3);
+const latest = articles.slice(0, 8);
 const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Technology, clearly understood" description="Ideas, analysis, and practical perspectives on software development, artificial intelligence, digital solutions, digital transformation, and the technologies moving us forward.">
@@ -60,8 +60,11 @@ const base = import.meta.env.BASE_URL;
         <a class="section-link" href={`${base}articles/`}>All articles <span aria-hidden="true">↗</span></a>
       </div>
       {latest.length > 0 ? (
-        <div class="article-grid">
-          {latest.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? `${base}og/${encodeURIComponent(article.id)}.png`} />)}
+        <div class="latest-rail-wrap">
+          <div class="latest-rail" aria-label="Latest articles">
+            {latest.map((article) => <div class="latest-rail-item"><ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? `${base}og/${encodeURIComponent(article.id)}.png`} /></div>)}
+          </div>
+          <p class="rail-hint"><span aria-hidden="true">←</span> Scroll horizontally to explore more stories <span aria-hidden="true">→</span></p>
         </div>
       ) : (
         <div class="editorial-empty">
