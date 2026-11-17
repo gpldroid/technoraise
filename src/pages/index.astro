@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL;
     </div>
     <div class="topic-grid">
       {categories.map((category, index) => (
-        <a class:list={["topic-card", `topic-card-${index + 1}`]} href={`${base}categories/${category.slug}/`}>
+        <a class:list={["topic-card", `topic-card-${index + 1}`]} href={`${base}${category.slug === "software-development" ? "software-dev/" : category.slug === "artificial-intelligence" ? "ai/" : `categories/${category.slug}/`}`}>
           <span class="topic-number">{category.number} / 05</span>
           <span class="topic-icon" aria-hidden="true">{["⌘", "✳", "◇", "↗", "◉"][index]}</span>
           <h3>{category.name}</h3>
