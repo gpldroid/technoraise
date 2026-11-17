@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://technoraise.com/sitemap-index.xml
+Sitemap: https://gpldroid.github.io/technoraise/sitemap-index.xml
