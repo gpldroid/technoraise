@@ -60,7 +60,7 @@ const breadcrumbSchema = {
         {updatedDate && <span class="updated-note">Updated {new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(updatedDate)}</span>}
       </div>
     </header>
-    {image && <img class="article-hero-image" src={image} alt="" fetchpriority="high" />}
+    {image && <img class="article-hero-image" src={imageSrc} alt="" fetchpriority="high" />}
     <div class="article-content"><slot /></div>
     <div class="article-endnote">
       <span class="endnote-symbol">✳</span>
