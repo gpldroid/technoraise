@@ -61,7 +61,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       {latest.length > 0 ? (
         <div class="article-grid">
-          {latest.map((article) => <ArticleCard title={article.data.title} description={article.data.description} href={`/articles/${article.id}/`} category={categories.find((item) => item.slug === article.data.category)?.name ?? article.data.category} date={article.data.pubDate} />)}
+          {latest.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? "social-card.svg"} />)}
         </div>
       ) : (
         <div class="editorial-empty">
