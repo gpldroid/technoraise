@@ -44,7 +44,7 @@ const organizationSchema = {
       })(window,document,"script","dataLayer","GTM-W227L4KM");
     </script>
     <!-- End Google Tag Manager -->
-    <SeoHead title={title} description={description} image={ogImage} type={type} noindex={noindex} />
+    <SeoHead title={title} description={description} image={ogImage} imageAlt={title} type={type} noindex={noindex} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <slot name="head" />
