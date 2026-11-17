@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+import { categories } from "../../data/categories";
+
+export function getStaticPaths() {
+  return categories.map((category) => ({ params: { slug: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props;
+const articles = (await getCollection("articles", ({ data }) => !data.draft && data.category === category.slug))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout title={category.name} description={category.description}>
+  <section class="listing-hero section-wrap category-hero">
+    <a class="back-link" href="/categories/">← All topics</a>
+    <span class="section-kicker">TOPIC / {category.number}</span>
+    <h1>{category.name}<em>.</em></h1>
+    <p>{category.description}</p>
+  </section>
+  <section class="listing-content section-wrap">
+    {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard title={article.data.title} description={article.data.description} href={`/articles/${article.id}/`} category={category.name} date={article.data.pubDate} />)}</div> : <div class="editorial-empty"><span class="empty-mark">✳</span><div><h2>Stories for this topic are on the way.</h2><p>We're developing useful, carefully researched coverage for this part of the technology landscape.</p></div><a href="/articles/">Browse all articles <span aria-hidden="true">↗</span></a></div>}
+  </section>
+</BaseLayout>
