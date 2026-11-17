@@ -24,6 +24,9 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(true),
     heroImage: z.string().optional(),
+    // Set these to the source image's real dimensions to reserve its exact aspect ratio.
+    heroImageWidth: z.number().int().positive().default(1600),
+    heroImageHeight: z.number().int().positive().default(900),
   }),
 });
 
