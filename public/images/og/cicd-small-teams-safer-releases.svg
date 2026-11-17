@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">CI/CD for Small Teams</title><desc id="desc">Make every release safer. TechnoRaise editorial technology artwork.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06152B"/><stop offset=".55" stop-color="#092B4C"/><stop offset="1" stop-color="#03101F"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#25D6CE"/><stop offset="1" stop-color="#168EFF"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#0E8DCD" stop-opacity=".5"/><stop offset="1" stop-color="#0E8DCD" stop-opacity="0"/></radialGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.02 0 0 0 0 0.4 0 0 0 0 0.7 0 0 0 .5 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#4AB6E8" stroke-opacity=".08" stroke-width="1"/></pattern>
+ <style>.headline{font:700 62px Inter,Arial,sans-serif;fill:#F3FAFF;letter-spacing:-2px}.kicker{font:700 16px Inter,Arial,sans-serif;fill:#5BE5DB;letter-spacing:3px}.sub{font:500 24px Inter,Arial,sans-serif;fill:#B8D9ED}.brand{font:700 25px Inter,Arial,sans-serif;fill:#F3FAFF}.small{font:600 14px Inter,Arial,sans-serif;fill:#9FC7DF;letter-spacing:2px}</style>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+<path d="M0 500C240 420 330 670 650 570S1000 460 1200 540V630H0Z" fill="#061E37" opacity=".8"/>
+<circle cx="1040" cy="100" r="260" fill="#0878B8" opacity=".08"/><path d="M0 0h1200v8H0Z" fill="url(#accent)"/>
+<text x="82" y="95" class="kicker">SOFTWARE DEVELOPMENT</text>
+<text x="82" y="240" class="headline">CI/CD for Small Teams</text>
+<rect x="82" y="336" width="420" height="5" rx="3" fill="url(#accent)"/>
+<text x="82" y="386" class="sub">Make every release safer</text>
+<g><circle cx="905" cy="315" r="205" fill="url(#glow)"/><rect x="670" y="104" width="440" height="420" rx="34" fill="#0A2342" stroke="#247BC4" stroke-opacity=".65" stroke-width="2"/><g filter="url(#shadow)"><path d="M710 310h365" stroke="#1C9BC4" stroke-width="9" stroke-linecap="round"/><g><circle cx="750" cy="310" r="55" fill="#0B4776" stroke="#49DFFF" stroke-width="5"/><path d="m730 310 14 14 28-32" stroke="#D1FFFF" stroke-width="8" fill="none"/><circle cx="875" cy="310" r="55" fill="#0B4776" stroke="#43D8D0" stroke-width="5"/><path d="m855 310 14 14 28-32" stroke="#D1FFFF" stroke-width="8" fill="none"/><circle cx="1000" cy="310" r="55" fill="#173E78" stroke="#FFA64C" stroke-width="5"/><path d="m975 325 25-35 25 35" stroke="#FFE5BD" stroke-width="7" fill="none"/></g><g fill="#B6F6FF" font-family="Arial" font-size="17" text-anchor="middle"><text x="750" y="400">BUILD</text><text x="875" y="400">TEST</text><text x="1000" y="400">DEPLOY</text></g></g></g>
+<path d="M82 555h1036" stroke="#5AA6CE" stroke-opacity=".28"/>
+<rect x="82" y="578" width="28" height="28" rx="8" fill="#20CFC3"/><text x="96" y="598" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#05223C">T</text><text x="122" y="599" class="brand">TechnoRaise</text>
+<text x="1118" y="598" text-anchor="end" class="small">TECHNOLOGY • IDEAS • INNOVATION</text>
+</svg>
