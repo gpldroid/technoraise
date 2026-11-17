@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { categories } from "../../data/categories";
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles", ({ data }) => !data.draft);
+---
+<BaseLayout title="Topics" description="Explore the five editorial pillars of TechnoRaise: software development, artificial intelligence, digital solutions, digital transformation, and technology news.">
+  <section class="listing-hero section-wrap">
+    <span class="section-kicker">THE EDITORIAL MAP</span>
+    <h1>Five lenses on a <em>changing world.</em></h1>
+    <p>Technology is never just one thing. Follow the ideas and disciplines connected to the way our digital future takes shape.</p>
+  </section>
+  <section class="category-list section-wrap">
+    {categories.map((category, index) => {
+      const count = articles.filter((article) => article.data.category === category.slug).length;
+      return <a class="category-row" href={`/categories/${category.slug}/`}>
+        <span class="category-row-number">{category.number}</span>
+        <span class="category-row-icon" aria-hidden="true">{["⌘", "✳", "◇", "↗", "◉"][index]}</span>
+        <span class="category-row-copy"><strong>{category.name}</strong><small>{category.description}</small></span>
+        <span class="category-row-count">{count} {count === 1 ? "story" : "stories"}</span>
+        <span class="category-row-arrow" aria-hidden="true">↗</span>
+      </a>;
+    })}
+  </section>
+</BaseLayout>
