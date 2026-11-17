@@ -9,9 +9,10 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   author: string;
+  authorType?: "Person" | "Organization";
   image?: string;
 }
-const { title, description, category, pubDate, updatedDate, author, image } = Astro.props;
+const { title, description, category, pubDate, updatedDate, author, authorType = "Organization", image } = Astro.props;
 const categoryName = categories.find((item) => item.slug === category)?.name ?? category;
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
@@ -22,7 +23,7 @@ const articleSchema = {
   description,
   datePublished,
   dateModified,
-  author: { "@type": "Person", name: author },
+  author: { "@type": authorType, name: author },
   publisher: { "@type": "Organization", name: "TechnoRaise", url: "https://technoraise.com/" },
   mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
   ...(image ? { image: new URL(image, Astro.site).toString() } : {}),
