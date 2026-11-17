@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /technoraise/software-dev/
+Allow: /technoraise/ai/
 Allow: /technoraise/categories/software-development/
 Allow: /technoraise/categories/artificial-intelligence/
 Allow: /technoraise/categories/digital-transformation/
