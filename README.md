@@ -114,7 +114,7 @@ The workflow deploys on every push to `main` and can also be started manually wi
 
 ## Before public launch
 
-- In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**. The workflow publishes the site at `https://gpldroid.github.io/technoraise/`.
+- Confirm the first GitHub Pages deployment completes successfully.
 - Add verified organization and author information where appropriate.
 - Replace or complete the contact details and legal copy to reflect the actual publisher, jurisdiction, audience, data processing, and any third-party services used.
 - Review every article for originality, accuracy, attribution, and publication readiness.
