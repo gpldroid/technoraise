@@ -17,6 +17,6 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft && d
     <p>{category.description}</p>
   </section>
   <section class="listing-content section-wrap">
-    {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard title={article.data.title} description={article.data.description} href={`/articles/${article.id}/`} category={category.name} date={article.data.pubDate} />)}</div> : <div class="editorial-empty"><span class="empty-mark">✳</span><div><h2>Stories for this topic are on the way.</h2><p>We're developing useful, carefully researched coverage for this part of the technology landscape.</p></div><a href={`${base}articles/`}>Browse all articles <span aria-hidden="true">↗</span></a></div>}
+    {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? "social-card.svg"} />)}</div> : <div class="editorial-empty"><span class="empty-mark">✳</span><div><h2>Stories for this topic are on the way.</h2><p>We're developing useful, carefully researched coverage for this part of the technology landscape.</p></div><a href={`${base}articles/`}>Browse all articles <span aria-hidden="true">↗</span></a></div>}
   </section>
 </BaseLayout>
