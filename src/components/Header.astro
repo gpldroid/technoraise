@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname.startsWith(base)
       <div class="nav-dropdown">
         <a class:list={["nav-link", { active: currentPath.startsWith("/categories/") }]} href={`${base}categories/`}>Topics <span aria-hidden="true">⌄</span></a>
         <div class="dropdown-panel">
-          {categories.map((category) => <a href={`${base}categories/${category.slug}/`}>{category.name}</a>)}
+          {categories.map((category) => <a href={`${base}${category.slug === "software-development" ? "software-dev/" : category.slug === "artificial-intelligence" ? "ai/" : `categories/${category.slug}/`}`}>{category.name}</a>)}
         </div>
       </div>
       <a class:list={["nav-link", { active: currentPath === "/about/" }]} href={`${base}about/`}>About</a>
