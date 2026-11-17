@@ -16,22 +16,24 @@
   const loadAnalytics = () => {
     if (analyticsLoaded) return;
     analyticsLoaded = true;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    const browserWindow = window as Window & { dataLayer?: unknown[] };
+    browserWindow.dataLayer = browserWindow.dataLayer || [];
+    browserWindow.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
     const script = document.createElement("script");
     script.async = true;
     script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-W227L4KM";
     document.head.appendChild(script);
   };
   const showBanner = () => { if (banner) banner.hidden = false; };
-  const saved = localStorage.getItem(storageKey);
+  let saved: string | null = null;
+  try { saved = localStorage.getItem(storageKey); } catch { /* Storage may be unavailable; keep optional analytics disabled. */ }
   if (saved === "accepted") loadAnalytics();
   if (!saved && banner) showBanner();
   banner?.querySelectorAll<HTMLButtonElement>("[data-consent]").forEach((button) => {
     button.addEventListener("click", () => {
       const choice = button.dataset.consent;
       if (choice !== "accepted" && choice !== "rejected") return;
-      localStorage.setItem(storageKey, choice);
+      try { localStorage.setItem(storageKey, choice); } catch { /* The choice applies for this page view even if storage is blocked. */ }
       banner.hidden = true;
       if (choice === "accepted") loadAnalytics();
     });
