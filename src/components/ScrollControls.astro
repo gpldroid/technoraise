@@ -1,0 +1,14 @@
+<div class="scroll-controls" aria-label="Page scrolling controls">
+  <button type="button" class="scroll-control" data-scroll="top" aria-label="Scroll to top" title="Scroll to top">↑</button>
+  <button type="button" class="scroll-control" data-scroll="bottom" aria-label="Scroll to bottom" title="Scroll to bottom">↓</button>
+</div>
+<script>
+  const controls = document.querySelector(".scroll-controls");
+  const topButton = controls?.querySelector('[data-scroll="top"]');
+  const bottomButton = controls?.querySelector('[data-scroll="bottom"]');
+  const update = () => controls?.classList.toggle("is-visible", window.scrollY > 260);
+  topButton?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  bottomButton?.addEventListener("click", () => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" }));
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+</script>
