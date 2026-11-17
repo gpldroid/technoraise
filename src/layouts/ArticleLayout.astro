@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import { categories } from "../data/categories";
 
@@ -32,10 +31,13 @@ const {
 const categoryName = categories.find((item) => item.slug === category)?.name ?? category;
 const base = import.meta.env.BASE_URL;
 const routePath = Astro.url.pathname.startsWith(base) ? Astro.url.pathname.slice(base.length) : Astro.url.pathname.startsWith("/") ? Astro.url.pathname.slice(1) : Astro.url.pathname;
-const imageSrc = image ? (image.startsWith("http") ? image : image.startsWith("/") ? image : `/${image}`) : undefined;
+const imageSrc = image
+  ? (image.startsWith("http") ? image : image.startsWith("/") ? image : `/${image}`)
+  : `${base}images/og/${encodeURIComponent(slug)}.svg`;
 const pageUrl = new URL(`${base}${routePath}`, Astro.site).toString();
 const siteUrl = new URL(base, Astro.site).toString();
 const socialImageUrl = new URL(`${base}og/${encodeURIComponent(slug)}.png`, Astro.site).toString();
+const articleImageUrl = imageSrc.startsWith("http") ? imageSrc : new URL(imageSrc, Astro.site).toString();
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const articleSchema = {
@@ -48,7 +50,7 @@ const articleSchema = {
   author: { "@type": authorType, name: author },
   publisher: { "@type": "Organization", name: "TechnoRaise", url: siteUrl },
   mainEntityOfPage: pageUrl,
-  image: imageSrc ? (imageSrc.startsWith("http") ? imageSrc : new URL(`${base}${imageSrc.replace(/^\/+/, "")}`, Astro.site).toString()) : socialImageUrl,
+  image: articleImageUrl || socialImageUrl,
 };
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -60,7 +62,7 @@ const breadcrumbSchema = {
   ],
 };
 ---
-<BaseLayout title={title} description={description} image={image} type="article" slug={slug}>
+<BaseLayout title={title} description={description} image={imageSrc} type="article" slug={slug}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
   <article class="article-shell">
@@ -78,13 +80,18 @@ const breadcrumbSchema = {
         {updatedDate && <span class="updated-note">Updated {new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" }).format(updatedDate)}</span>}
       </div>
     </header>
-    {imageSrc && (
-      imageSrc.startsWith("http") ? (
-        <Image class="article-hero-image" src={imageSrc} alt={title} inferSize format="webp" loading="eager" fetchpriority="high" />
-      ) : (
-        <Image class="article-hero-image" src={imageSrc} alt={title} width={imageWidth} height={imageHeight} format="webp" loading="eager" fetchpriority="high" />
-      )
-    )}
+    <figure class="article-hero">
+      <img
+        class="article-hero-image"
+        src={imageSrc}
+        alt={title}
+        width={imageWidth}
+        height={imageHeight}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </figure>
     <div class="article-content"><slot /></div>
     <div class="article-endnote">
       <span class="endnote-symbol">✳</span>
