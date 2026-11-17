@@ -6,14 +6,13 @@ import { getCollection } from "astro:content";
 
 const articles = (await getCollection("articles", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const featured = articles[0];
 const latest = articles.slice(0, 3);
 ---
 <BaseLayout title="Technology, clearly understood" description="Ideas, analysis, and practical perspectives on software development, artificial intelligence, digital solutions, and the technologies moving us forward.">
   <section class="hero">
     <div class="hero-grid"></div>
     <div class="hero-copy">
-      <div class="hero-kicker"><span class="status-dot"></span> An independent technology publication</div>
+      <div class="hero-kicker"><span class="status-dot"></span> An English-language technology publication</div>
       <h1>Technology moves fast.<br /><em>Understanding</em> moves us forward.</h1>
       <p class="hero-description">A sharper perspective on the ideas, tools, and decisions shaping our digital world — from software engineering to artificial intelligence and beyond.</p>
       <div class="hero-actions">
@@ -32,12 +31,10 @@ const latest = articles.slice(0, 3);
     </div>
     <div class="hero-bottom"><span>EST. FOR THE CURIOUS</span><span>TECHNORAISE / 001</span></div>
   </section>
-
   <section class="intro-strip section-wrap">
     <p class="intro-lead">The future isn't something to watch.<br /><span>It's something to understand — and build.</span></p>
     <p class="intro-aside">We make complex technology more approachable, useful, and meaningful for the people building what comes next.</p>
   </section>
-
   <section class="topics-section section-wrap">
     <div class="section-heading">
       <div><span class="section-kicker">THE EDITORIAL MAP</span><h2>Ideas worth <em>exploring.</em></h2></div>
@@ -55,7 +52,6 @@ const latest = articles.slice(0, 3);
       ))}
     </div>
   </section>
-
   <section class="latest-section">
     <div class="section-wrap">
       <div class="section-heading">
@@ -75,7 +71,6 @@ const latest = articles.slice(0, 3);
       )}
     </div>
   </section>
-
   <section class="closing-banner section-wrap">
     <div><span class="section-kicker">STAY CURIOUS</span><h2>Better questions.<br /><em>Brighter possibilities.</em></h2></div>
     <a class="button button-light" href="/about/">Discover TechnoRaise <span aria-hidden="true">↗</span></a>
