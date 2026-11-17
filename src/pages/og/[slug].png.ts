@@ -49,8 +49,35 @@ export async function getStaticPaths() {
 
 export async function GET({ props }: { props: { article: Awaited<ReturnType<typeof getCollection<"articles">>>[number] } }) {
   const { article } = props;
-  const [regularFont, boldFont] = await fontData;
   await initializeRenderer();
+
+  // Prefer the hand-authored SVG artwork and rasterize it to PNG for broad
+  // Open Graph and Twitter compatibility. The SVG remains the editable master.
+  try {
+    const artworkPath = fileURLToPath(
+      new URL(`../../../public/images/og/${article.id}.svg`, import.meta.url),
+    );
+    const artwork = await readFile(artworkPath, "utf8");
+    const png = new Resvg(artwork, {
+      fitTo: { mode: "width", value: WIDTH },
+      background: "#06152B",
+    }).render().asPng();
+    const pngBuffer = png.buffer.slice(
+      png.byteOffset,
+      png.byteOffset + png.byteLength,
+    ) as ArrayBuffer;
+    return new Response(pngBuffer, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Length": String(png.byteLength),
+      },
+    });
+  } catch {
+    // Keep the existing metadata-driven card as a safe fallback.
+  }
+
+  const [regularFont, boldFont] = await fontData;
 
   const publishedDate = new Intl.DateTimeFormat("en-US", {
     month: "long",
