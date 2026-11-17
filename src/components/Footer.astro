@@ -29,7 +29,7 @@ const topicHref = (slug: string) => `${base}${slug === "software-development" ? 
       <h2>Information</h2>
       <a href={`${base}privacy-policy/`}>Privacy policy</a>
       <a href={`${base}terms-of-use/`}>Terms of use</a>
-      <button class="footer-cookie-link" type="button" onclick="window.dispatchEvent(new Event('technoraise:cookie-preferences'))">Cookie preferences</button>
+      <button class="footer-cookie-link" type="button" data-open-cookie-preferences>Cookie preferences</button>
     </div>
   </div>
   <div class="footer-bottom">
@@ -37,3 +37,8 @@ const topicHref = (slug: string) => `${base}${slug === "software-development" ? 
     <span>Independent thinking. Practical technology.</span>
   </div>
 </footer>
+<script>
+  document.querySelector("[data-open-cookie-preferences]")?.addEventListener("click", () => {
+    window.dispatchEvent(new Event("technoraise:cookie-preferences"));
+  });
+</script>
