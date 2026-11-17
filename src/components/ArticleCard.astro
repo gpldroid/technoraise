@@ -11,9 +11,10 @@ const { title, description, href, category, date, readingTime } = Astro.props;
 const formattedDate = date
   ? new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(date)
   : undefined;
+const articleHref = `${import.meta.env.BASE_URL}${href.replace(/^\/+/, "")}`;
 ---
 <article class="article-card">
-  <a class="article-card-link" href={href}>
+  <a class="article-card-link" href={articleHref}>
     <div class="article-card-meta">
       <span class="eyebrow">{category}</span>
       {formattedDate && <time>{formattedDate}</time>}
