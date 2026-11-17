@@ -45,7 +45,7 @@ const articleSchema = {
   author: { "@type": authorType, name: author },
   publisher: { "@type": "Organization", name: "TechnoRaise", url: siteUrl },
   mainEntityOfPage: pageUrl,
-  ...(imageSrc ? { image: new URL(imageSrc, Astro.site).toString() } : {}),
+  ...(imageSrc ? { image: imageSrc.startsWith("http") ? imageSrc : new URL(`${base}${imageSrc.replace(/^\\/+/, "")}`, Astro.site).toString() } : {}),
 };
 const breadcrumbSchema = {
   "@context": "https://schema.org",
