@@ -35,6 +35,7 @@ const routePath = Astro.url.pathname.startsWith(base) ? Astro.url.pathname.slice
 const imageSrc = image ? (image.startsWith("http") ? image : image.startsWith("/") ? image : `/${image}`) : undefined;
 const pageUrl = new URL(`${base}${routePath}`, Astro.site).toString();
 const siteUrl = new URL(base, Astro.site).toString();
+const socialImageUrl = new URL(`${base}og/${encodeURIComponent(slug)}.png`, Astro.site).toString();
 const datePublished = pubDate.toISOString();
 const dateModified = (updatedDate ?? pubDate).toISOString();
 const articleSchema = {
@@ -47,7 +48,7 @@ const articleSchema = {
   author: { "@type": authorType, name: author },
   publisher: { "@type": "Organization", name: "TechnoRaise", url: siteUrl },
   mainEntityOfPage: pageUrl,
-  ...(imageSrc ? { image: imageSrc.startsWith("http") ? imageSrc : new URL(`${base}${imageSrc.replace(/^\/+/, "")}`, Astro.site).toString() } : {}),
+  image: imageSrc ? (imageSrc.startsWith("http") ? imageSrc : new URL(`${base}${imageSrc.replace(/^\/+/, "")}`, Astro.site).toString()) : socialImageUrl,
 };
 const breadcrumbSchema = {
   "@context": "https://schema.org",
