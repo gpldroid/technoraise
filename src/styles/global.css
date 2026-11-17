@@ -83,3 +83,10 @@
 .article-card-content .article-card-description{display:-webkit-box;overflow:hidden;margin:0 0 18px;color:var(--muted);font-size:11px;line-height:1.8;-webkit-box-orient:vertical;-webkit-line-clamp:3}
 .article-card-read-link{margin-top:auto;color:var(--blue);font-size:10px;font-weight:800}
 .article-card-read-link span{margin-left:7px}
+
+
+/* Consistent alignment for contemporary inline SVG interface icons. */
+.ui-icon{display:inline-block;flex:none;width:1em;height:1em;vertical-align:-.16em;stroke:currentColor}
+.button .ui-icon,.header-cta .ui-icon,.section-link .ui-icon,.category-row-arrow .ui-icon,.article-card-read-link .ui-icon{width:16px;height:16px}
+.category-row-arrow{display:grid;place-items:center}
+.article-card-read-link{display:inline-flex;align-items:center;gap:7px}

@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
       <h1>Technology moves fast.<br /><em>Understanding</em> moves us forward.</h1>
       <p class="hero-description">A sharper perspective on the ideas, tools, and decisions shaping our digital world — from software engineering to artificial intelligence and beyond.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href={`${base}categories/`}>Explore the topics <span aria-hidden="true">↗</span></a>
+        <a class="button button-primary" href={`${base}categories/`}>Explore the topics <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         <a class="text-link" href={`${base}about/`}>Our point of view <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-footnote"><span>INDEPENDENT IDEAS</span><span class="footnote-line"></span><span>PRACTICAL PERSPECTIVES</span></div>
@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL;
       <div class="art-core"><span class="core-cross">✳</span><span class="core-word">THINK<br />FORWARD</span></div>
       <div class="art-panel panel-one"><span>01 / CODE</span><b>{ }</b></div>
       <div class="art-panel panel-two"><span>02 / INTELLIGENCE</span><b>AI<span>.</span></b></div>
-      <div class="art-panel panel-three"><span>03 / CHANGE</span><b>↗</b></div>
+      <div class="art-panel panel-three"><span>03 / CHANGE</span><b><svg class="ui-icon art-panel-icon" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4"/></svg></b></div>
       <span class="art-coordinate coordinate-one">35° 41' N</span><span class="art-coordinate coordinate-two">IDEAS IN MOTION</span>
     </div>
     <div class="hero-bottom"><span>EST. FOR THE CURIOUS</span><span>TECHNORAISE / 001</span></div>
@@ -39,16 +39,16 @@ const base = import.meta.env.BASE_URL;
   <section class="topics-section section-wrap">
     <div class="section-heading">
       <div><span class="section-kicker">THE EDITORIAL MAP</span><h2>Ideas worth <em>exploring.</em></h2></div>
-      <a class="section-link" href={`${base}categories/`}>All topics <span aria-hidden="true">↗</span></a>
+      <a class="section-link" href={`${base}categories/`}>All topics <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
     </div>
     <div class="topic-grid">
       {categories.map((category, index) => (
         <a class:list={["topic-card", `topic-card-${index + 1}`]} href={`${base}${category.slug === "software-development" ? "software-dev/" : category.slug === "artificial-intelligence" ? "ai/" : `categories/${category.slug}/`}`}>
           <span class="topic-number">{category.number} / 05</span>
-          <span class="topic-icon" aria-hidden="true">{["⌘", "✳", "◇", "↗", "◉"][index]}</span>
+          <span class="topic-icon" aria-hidden="true">{["⌘", "✳", "◇", "◈", "◉"][index]}</span>
           <h3>{category.name}</h3>
           <p>{category.description}</p>
-          <span class="topic-arrow" aria-hidden="true">↗</span>
+          <span class="topic-arrow" aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
         </a>
       ))}
     </div>
@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL;
     <div class="section-wrap">
       <div class="section-heading">
         <div><span class="section-kicker">FROM THE EDITORIAL DESK</span><h2>Fresh thinking. <em>Coming into focus.</em></h2></div>
-        <a class="section-link" href={`${base}articles/`}>All articles <span aria-hidden="true">↗</span></a>
+        <a class="section-link" href={`${base}articles/`}>All articles <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </div>
       {latest.length > 0 ? (
         <div class="latest-rail-wrap">
@@ -70,14 +70,14 @@ const base = import.meta.env.BASE_URL;
         <div class="editorial-empty">
           <span class="empty-mark">✳</span>
           <div><h3>The next good read is taking shape.</h3><p>Our editorial desk is preparing its first collection of original stories. Check back soon.</p></div>
-          <a href={`${base}editorial-policy/`}>How we approach our work <span aria-hidden="true">↗</span></a>
+          <a href={`${base}editorial-policy/`}>How we approach our work <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       )}
     </div>
   </section>
   <section class="closing-banner section-wrap">
     <div><span class="section-kicker">STAY CURIOUS</span><h2>Better questions.<br /><em>Brighter possibilities.</em></h2></div>
-    <a class="button button-light" href={`${base}about/`}>Discover TechnoRaise <span aria-hidden="true">↗</span></a>
+    <a class="button button-light" href={`${base}about/`}>Discover TechnoRaise <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
     <span class="closing-asterisk" aria-hidden="true">✳</span>
   </section>
 </BaseLayout>
