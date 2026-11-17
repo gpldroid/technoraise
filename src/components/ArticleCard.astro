@@ -15,14 +15,16 @@ const formattedPubDate = publicationDate.toLocaleDateString("en-US", {
   year: "numeric",
 });
 
-// Accept absolute image URLs and both root-relative and content-relative paths.
-// Avoid prefixing BASE_URL twice when callers already provide a BASE_URL path.
+// Accept absolute URLs and root-relative or content-relative paths without
+// accidentally adding the configured BASE_URL twice.
 const base = import.meta.env.BASE_URL;
 const normalizedBase = base.endsWith("/") ? base : `${base}/`;
-const imagePath = heroImage.replace(/^\\/+/, "");
-const imageSrc = /^https?:\\/\\//i.test(heroImage)
+const isAbsoluteImage = heroImage.startsWith("https://") || heroImage.startsWith("http://");
+const imagePath = heroImage.startsWith("/") ? heroImage.slice(1) : heroImage;
+const baseWithoutLeadingSlash = normalizedBase.startsWith("/") ? normalizedBase.slice(1) : normalizedBase;
+const imageSrc = isAbsoluteImage
   ? heroImage
-  : imagePath.startsWith(normalizedBase.replace(/^\\/+/, ""))
+  : imagePath.startsWith(baseWithoutLeadingSlash)
     ? `/${imagePath}`
     : `${normalizedBase}${imagePath}`;
 ---
@@ -39,7 +41,6 @@ const imageSrc = /^https?:\\/\\//i.test(heroImage)
         height="750"
       />
     </div>
-
     <div class="article-card-content">
       <p class="article-card-meta">
         <time datetime={publicationDate.toISOString()}>{formattedPubDate}</time>
