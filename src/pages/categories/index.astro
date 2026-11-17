@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL;
   <section class="category-list section-wrap">
     {categories.map((category, index) => {
       const count = articles.filter((article) => article.data.category === category.slug).length;
-      return <a class="category-row" href={`${base}categories/${category.slug}/`}>
+      return <a class="category-row" href={`${base}${category.slug === "software-development" ? "software-dev/" : category.slug === "artificial-intelligence" ? "ai/" : `categories/${category.slug}/`}`}>
         <span class="category-row-number">{category.number}</span>
         <span class="category-row-icon" aria-hidden="true">{["⌘", "✳", "◇", "↗", "◉"][index]}</span>
         <span class="category-row-copy"><strong>{category.name}</strong><small>{category.description}</small></span>
