@@ -9,7 +9,7 @@ const articles = (await getCollection("articles", ({ data }) => !data.draft))
 const latest = articles.slice(0, 3);
 const base = import.meta.env.BASE_URL;
 ---
-<BaseLayout title="Technology, clearly understood" description="Ideas, analysis, and practical perspectives on software development, artificial intelligence, digital solutions, and the technologies moving us forward.">
+<BaseLayout title="Technology, clearly understood" description="Ideas, analysis, and practical perspectives on software development, artificial intelligence, digital solutions, digital transformation, and the technologies moving us forward.">
   <section class="hero">
     <div class="hero-grid"></div>
     <div class="hero-copy">
@@ -61,7 +61,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       {latest.length > 0 ? (
         <div class="article-grid">
-          {latest.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? "social-card.svg"} />)}
+          {latest.map((article) => <ArticleCard title={article.data.title} description={article.data.description} pubDate={article.data.pubDate} url={`${base}articles/${article.id}/`} heroImage={article.data.heroImage ?? `${base}og/${encodeURIComponent(article.id)}.png`} />)}
         </div>
       ) : (
         <div class="editorial-empty">
